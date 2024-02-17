@@ -8,7 +8,14 @@ project(Gin VERSION 1.0.0)
 
 set (CMAKE_OSX_DEPLOYMENT_TARGET 10.9)
 
-add_subdirectory(juce)
+Include(FetchContent)
+
+FetchContent_Declare(
+    JUCE
+    GIT_REPOSITORY https://github.com/sigboost-inc/JUCE.git
+    GIT_TAG     origin/master_patched
+)
+FetchContent_MakeAvailable(JUCE)
 
 add_subdirectory(modules)
 add_subdirectory(examples/Demo)
